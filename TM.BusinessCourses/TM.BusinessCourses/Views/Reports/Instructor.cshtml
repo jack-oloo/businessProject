@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Section>
+@{
+    ViewBag.Title = "Instructor";
+}
+
+<h2>Sections with no instructor</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Course", "Index", new { sortOrder = @ViewBag.CourseSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Instructor", "Index", new { sortOrder = @ViewBag.InstructorSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Location", "Index", new { sortOrder = @ViewBag.LocationSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course_section)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_style)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.course_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instructor.last_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_section)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_style)
+            </td>
+        </tr>
+    }
+
+</table>

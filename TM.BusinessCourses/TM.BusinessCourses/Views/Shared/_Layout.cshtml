@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TMU</title>
+    <style>
+        .navbar-inverse {
+            background-color: #263776 !important;
+            font-size: 18px;
+        }
+        .navbar-brand {
+            color: #FFF !important
+        }
+         .navbar-brand:visited {
+                color: #FFF !important
+          }
+        .navbar-default-color {
+            color: #FFF !important
+        }
+        .navbar-inverse {
+            color: #FFF !important
+        }
+        .site-nav--active .site-nav__link {
+            font-weight: bold;
+        }
+        .img-thumbnail {
+            margin-right: 50px;
+        }      
+        .btn {
+            background: #263776;
+            color: #fff;
+            display: inline-block;
+            padding: 6px 12px 6px 12px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+    </style>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    <div class="navbar navbar-inverse ">
+        <a href="~/Home"><img src="http://www.thomasmore.edu/about/images/presskit/TMU_sig2_rgb.jpg" style="float:left" class="img-thumbnail" height="60" width="304" /></a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TMU Buisness", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    }
+                    <!--<li>@Html.ActionLink("Faculty", "Index", "Faculties")</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                    <li>@Html.ActionLink("Sections", "Index", "Sections")</li>-->
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IS Department</p>
+        </footer>
+    </div>
+</body>
+</html>

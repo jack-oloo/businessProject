@@ -1,0 +1,127 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Section>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+<h2>@ViewBag.course.course_no - @ViewBag.course.course_name</h2>
+<h3>Content Coordinator: @ViewBag.course.coordinator.first_name @ViewBag.course.coordinator.last_name - <a href="mailto:@ViewBag.course.coordinator.email">@ViewBag.course.coordinator.email</a></h3>
+@if (User.IsInRole("Admin"))
+{
+    <p>@Html.ActionLink("Edit Course", "Edit", "Courses", new { id = ViewBag.course.id }, new { @class = "btn btn-default" })</p>
+    <p>@Html.ActionLink("Add Section", "Create", "Sections", new { @id = ViewBag.course.id }, new { @class = "btn btn-default" })</p>
+    if (ViewBag.deleted == null || ViewBag.deleted == "")
+    {
+        @Html.ActionLink("Deleted Sections", "Sections", new { @deleted = "true", @id = ViewBag.course.id }, new { @class = "btn btn-default" })
+    }
+    else
+    {
+        @Html.ActionLink("Active Sections", "Sections", new { @id = ViewBag.course.id, @deleted = "" }, new { @class = "btn btn-default" })
+    }
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course_section)
+        </th>
+        <th>
+            @Html.ActionLink("Instructor", "Sections", new { sortOrder = @ViewBag.InstructorSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Location", "Sections", new { sortOrder = @ViewBag.LocationSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_style)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_section)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instructor.first_name) @Html.DisplayFor(modelItem => item.instructor.last_name) - @Html.DisplayFor(modelItem => item.instructor.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.class_style)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", "Sections", new { id = item.id }, new { @class = "btn btn-default" })
+                    if (ViewBag.deleted == null || ViewBag.deleted == "")
+                    {
+                        @Html.ActionLink("Delete", "Delete", "Sections", new { id = item.id }, new { @class = "btn btn-default" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Restore", "Restore", "Sections", new { id = item.id }, new { @class = "btn btn-default" })
+                    }
+                }
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+</p>

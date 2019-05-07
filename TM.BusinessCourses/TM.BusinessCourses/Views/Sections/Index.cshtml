@@ -1,0 +1,100 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Section>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Course", "Index", new { sortOrder = @ViewBag.CourseSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Instructor", "Index", new { sortOrder = @ViewBag.InstructorSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Location", "Index", new { sortOrder = @ViewBag.LocationSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course_section)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_style)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.course_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instructor.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course_section)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.days)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.class_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.class_style)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+}
+
+</table>

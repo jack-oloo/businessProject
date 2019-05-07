@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ManageUsers";
+}
+
+<h2>ManageUsers</h2>
+
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h2>Search</h2>
+    <input type="text" id="search" , name="search" value="@ViewBag.search" />
+    <input type="submit" value="Search" class="btn btn-default" />
+</div>
+}
+<p>@Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })</p>
+<table class="table">
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Admin
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    
+@foreach (TM.BusinessCourses.Models.ApplicationUser user in Model)
+{
+
+<tr>
+    <td>
+        @user.UserName
+    </td>
+    <td>
+        @user.Email
+    </td>
+    <td>
+        @if (user.Roles.Where(x => x.RoleId == ViewBag.adminID).Count() > 0)
+        {
+            <input type="checkbox" name="admin" disabled checked>
+        }
+        else
+        {
+            <input type="checkbox" name="admin" disabled>
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = user.Id }, new { @class = "btn btn-default" })
+    </td>
+</tr>
+}
+</table>

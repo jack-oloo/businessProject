@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Faculty>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Search</h2>
+        <input type="text" id="search" , name="search" value="@ViewBag.search" />
+        <input type="text" id="deleted" , name="deleted" value="@ViewBag.deleted" hidden />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </div>
+}
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+    @if (ViewBag.deleted == null || ViewBag.deleted == "")
+    {
+        @Html.ActionLink("Deleted Faculty", "Index", new { @deleted = "true" }, new { @class = "btn btn-default" })
+    }
+    else
+    {
+        @Html.ActionLink("Active Faculty", "Index", null, new { @class = "btn btn-default" })
+    }
+    @Html.ActionLink("Back", "Index", "Admin", null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = @ViewBag.FirstSortParm, deleted = ViewBag.deleted, search = ViewBag.search })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = @ViewBag.NameSortParm, deleted = ViewBag.deleted, search = ViewBag.search })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.first_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-default" }) |
+                @if (ViewBag.deleted == null || ViewBag.deleted == "")
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-default" })
+                }
+                else
+                {
+                    @Html.ActionLink("Restore", "Restore", new { id = item.id }, new { @class = "btn btn-default" })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

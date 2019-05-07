@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Course>
+@{
+    ViewBag.Title = "Coordinator";
+}
+
+<h2>Coordinator</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Course Name", "Index", new { sortOrder = @ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Course Number", "Index", new { sortOrder = @ViewBag.NumberSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Coordinator", "Index", new { sortOrder = @ViewBag.CoordSortParm })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coordinator.last_name)
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TM.BusinessCourses", "TM.BusinessCourses\TM.BusinessCourses.csproj", "{9C26CB84-EE58-4103-B316-44E285FAF21A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TM.BusinessCourses.Data", "TM.BusinessCourses.Data\TM.BusinessCourses.Data.sqlproj", "{C48982D3-B3B1-4F14-810F-70C8EB086978}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C26CB84-EE58-4103-B316-44E285FAF21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C26CB84-EE58-4103-B316-44E285FAF21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C26CB84-EE58-4103-B316-44E285FAF21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C26CB84-EE58-4103-B316-44E285FAF21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48982D3-B3B1-4F14-810F-70C8EB086978}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {279726F2-1148-4BFD-8336-2C634750802F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://swimmingexperts.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TM.BusinessCourses\\TM.BusinessCourses.csproj
+		SccProjectName1 = TM.BusinessCourses
+		SccLocalPath1 = TM.BusinessCourses
+		SccProjectUniqueName2 = TM.BusinessCourses.Data\\TM.BusinessCourses.Data.sqlproj
+		SccProjectName2 = TM.BusinessCourses.Data
+		SccLocalPath2 = TM.BusinessCourses.Data
+	EndGlobalSection
+EndGlobal

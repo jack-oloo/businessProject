@@ -1,0 +1,10 @@
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\bin\Debug\TM.BusinessCourses.Data.dacpac
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\bin\Debug\Database1.dll
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\bin\Debug\Database1.pdb
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\Database1.dll
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\Database1.pdb
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\Model.xml
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\refactor.xml
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\postdeploy.sql
+C:\Users\jcdet\source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\predeploy.sql
+C:\Users\jcdet\Source\Workspaces\TM.BusinessCourses\TM.BusinessCourses\TM.BusinessCourses.Data\obj\Debug\TM.BusinessCourses.Data.sqlprojAssemblyReference.cache

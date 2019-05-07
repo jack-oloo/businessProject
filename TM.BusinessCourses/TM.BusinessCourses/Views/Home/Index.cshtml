@@ -1,0 +1,94 @@
+﻿@model TM.BusinessCourses.Models.Course
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Search</h2>
+        <input type="text" id="search" , name="search" value="@ViewBag.search" />
+        <input type="text" id="deleted" , name="deleted" value="@ViewBag.deleted" hidden />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </div>
+}
+<br />
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Add Course", "Create", "Courses", null, new { @class = "btn btn-default" })
+        @if (ViewBag.deleted == null || ViewBag.deleted == "")
+        {
+        @Html.ActionLink("Deleted Courses", "Index", new { @deleted = "true"}, new { @class = "btn btn-default" })
+        }
+        else
+        {
+        @Html.ActionLink("Active Courses", "Index", null, new { @class = "btn btn-default" })
+        }
+    </p>
+}
+<hr />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Course Name", "Index", new { sortOrder = @ViewBag.NameSortParm, search = ViewBag.search })
+        </th>
+        <th>
+            @Html.ActionLink("Course Number", "Index", new { sortOrder = @ViewBag.NumberSortParm, search = ViewBag.search })
+        </th>
+        <th>
+            @Html.ActionLink("Coordinator", "Index", new { sortOrder = @ViewBag.CoordSortParm, search = ViewBag.search })
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.courses)
+    {
+        <tr>
+            <td>
+                <a href="~/Home/Sections/@item.id">
+                    @item.course_name
+                </a>
+            </td>
+            <td>
+                @item.course_no
+            </td>
+            <td>
+                @item.coordinator.first_name @item.coordinator.last_name - @item.coordinator.email
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    if (ViewBag.deleted == null || ViewBag.deleted == "")
+                    {
+                        @Html.ActionLink("Delete", "Delete", "Courses", new { id = item.id }, new { @class = "btn btn-default" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Restore", "Restore", "Courses", new { id = item.id }, new { @class = "btn btn-default" })
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>

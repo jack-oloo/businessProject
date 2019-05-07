@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back", "Index", "Admin", null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Location Name", "Index", new { sortOrder = @ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+}
+
+</table>

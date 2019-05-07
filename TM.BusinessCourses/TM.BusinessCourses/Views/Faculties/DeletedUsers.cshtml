@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TM.BusinessCourses.Models.Faculty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = @ViewBag.FirstSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = @ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.ActionLink("Restore", "Restore", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

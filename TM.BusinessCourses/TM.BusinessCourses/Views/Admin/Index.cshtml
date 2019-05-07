@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btn {
+        background: #263776;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 12px 6px 12px;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: #263776;
+            background: #C5C5C5;
+        }
+</style>
+<h2>Index</h2>
+
+<p>@Html.ActionLink("Manage Users", "ManageUsers", null, new { @class = "btn btn-default" })</p>
+<p>@Html.ActionLink("Manage Faculty", "Index", "Faculties", null, new { @class = "btn btn-default" })</p>
+<p>@Html.ActionLink("Manage Location", "Index", "Locations", null, new { @class = "btn btn-default" })</p>
